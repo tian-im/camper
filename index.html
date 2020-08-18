@@ -20,6 +20,9 @@
       color: #333333;
       font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", times, serif;
     }
+    .print-only {
+      display: none;
+    }
     .text-link {
       position: relative;
       display: inline-block;
@@ -27,15 +30,6 @@
     }
     .text-link::before,
     .text-link::after {
-      position: absolute;
-      left: 0;
-      bottom: 2px;
-      width: 100%;
-      content: "";
-      border-bottom: 1px solid var(--color-blurple);
-    }
-    .text-link--large::before,
-    .text-link--large::after {
       position: absolute;
       left: 0;
       bottom: 2px;
@@ -101,6 +95,13 @@
     }
 
     @media print {
+      .print-only {
+        display: block;
+      }
+      .main {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
       .shadow-md {
         box-shadow: none;
         height: 100vh;
@@ -109,74 +110,77 @@
   </style>
 </head>
 
-<body class="text-base relative">
-  <section class="h-screen flex justify-center">
-    <div class="self-center m-8">
-      <h1 class="font-bold text-4xl md:text-5xl mb-3"><a class="text-hey-color uppercase" href="#hey">Hey!</a> I’m Tian.</h1>
-      <h2 class="text-3xl md:text-4xl">I look for new challenges <br/> just because of you!</h2>
-      <p class="mt-16 text-s text-gray-600">Original version of this cover letter is at
-        <a class="text-link" href="http://i-want-basecamp.tian.im/">http://i-want-basecamp.tian.im/</a></p>
+<body class="relative text-base">
+  <section class="flex h-screen justify-center">
+    <div class="m-8 self-center">
+      <h1 class="font-bold mb-3 md:text-5xl text-4xl"><a class="text-hey-color uppercase" href="#hey">Hey!</a> I’m Tian.</h1>
+      <h2 class="md:text-4xl text-3xl">I'm ready for the challenges, are you?</h2>
+      <p class="print-only mt-16 text-gray-600 text-s">
+        Original version of this cover letter is at
+        <a class="text-link" href="http://i-want-basecamp.tian.im/">http://i-want-basecamp.tian.im/</a>
+      </p>
     </div>
   </section>
-  <section class="max-w-screen-lg bg-white shadow-md m-auto rounded px-10 pb-10 pt-12 mb-2">
-    <h2 class="text-divider font-bold text-2xl text-center mb-8">
-      <a class="z-10 bg-white m-auto text-heading" href="#who-i-truly-am">Who I Truly Am</a>
-    </h2>
-    <p class="mb-4">
-      <span class="font-bold">I’m a native Ruby speaker</span>, and I love writing Ruby to express my ideas.
-      Don’t believe it? Check out <a class="text-link" href="./resume.html">my resume</a>!
-      Although David said, ”Forget the resume.”, unlike the other boring resumes, mine is written in Ruby to honor its elegant
-      syntax.
-    </p>
-    <p class="mb-4">
-      <span class="font-bold">I love building web apps</span> that make life easier and happier, especially for ourselves -
-      developers.
-      <a class="text-link" href="https://github.com/wallaby-rails/wallaby" target="_blank">Wallaby</a> is a full-stack Rails engine I’ve crafted
-      over the years.
-      Although Ruby on Rails has eased the pain of web development, developers still need to scaffold generate controllers,
-      actions, and views.
-      <a class="text-link" href="https://github.com/wallaby-rails/wallaby" target="_blank">Wallaby</a> aims to reduce the boilerplates by
-      autocompleting the controllers and actions,
-      and making the views themeable so that developers can get an admin interface, a blog or any other themes up in just a
-      few minutes.
-    </p>
-    <p class="mb-4">
-      Working as a consultant, I don’t own any products literally. However, <span class="font-bold">I do ”own” these
-        products</span> in the way by putting a lot of care and ideas into them.
-      In particular, I’m nuts about writing up to 100% coverage specs to ensure every single happy path tested. Even
-      <a class="text-link" href="./resume.html">my resume</a> comes with a passing spec!
-      Because I believe quality is the most important thing to keep the customers. And this is why my client asked me to help
-      with their projects the 4th time and said:
-    </p>
-    <p class="pl-6 border-l-8 mb-6 italic">
-      ”Tian joined us in June this year on a short term engagement to deliver the backoffice
-      valet tool, and did an amazing job that helped ensure the successful & on-time delivery of the initiative.
-      It's been an absolute pleasure working with Tian - his knowledge, the quality of his work and his concern
-      for the user & customer experience made him an absolutely valuable member of the valet-pod.”
-    </p>
-    <h2 class="text-divider font-bold text-2xl text-center mt-10 mb-8">
-      <a class="z-10 bg-white m-auto text-heading" href="#why-only-you">Why Only You</a>
-    </h2>
-    <p class="mb-4">
-      <span class="font-bold">You are the best</span> in the Ruby on Rails industry.
-      Your work has a profound impact on the whole open-source community that I want to contribute to.
-      And you have an all-star team that I want to be part of.
-    </p>
-    <p class="mb-4">
-      I believe <span class="text-hey-color">HEY</span> is an innovative product that will influence millions of users
-      as it does tackle the same pain points that I am experiencing.
-      In particular, I love the philosophy to allowlist the emails instead of denylisting that overturns how people process emails from the ground up.
-      In contrast to how the other email providers or apps try to engage users, I think <span class="text-hey-color">HEY</span> sets the right tone to help users to reduce their time on emails.
-      Therefore, if given a chance, <span class="font-bold">I want to literally ”own” it</span> and grow with it this time.
-    </p>
+  <section class="flex leading-relaxed min-h-screen justify-center bg-white">
+    <div class="main self-center m-auto max-w-screen-md pb-10 pt-12 px-10">
+      <h2 class="font-bold mb-8 text-2xl text-center text-divider">
+        <a class="bg-white m-auto text-heading z-10" href="#who-i-truly-am">Who I Truly Am</a>
+      </h2>
+      <p class="mb-4">
+        <span class="font-bold">I’m a native Ruby speaker</span>, and I love writing it to express my ideas.
+        Check out <a class="text-link" href="./resume.html">my resume</a> as an example!
+        Is resume really dead, like David said? Not for me. Since mine is written in Ruby to honor its elegant syntax.
+      </p>
+      <p class="mb-4">
+        <span class="font-bold">I love building web apps</span> that make life easier and happier, especially for ourselves -
+        developers.
+        <a class="text-link" href="https://github.com/wallaby-rails/wallaby" target="_blank">Wallaby</a> is a full-stack Rails engine I’ve crafted
+        over the years.
+        Although Ruby on Rails has eased the pain of web development, developers still need to scaffold generate controllers,
+        actions, and views.
+        <a class="text-link" href="https://github.com/wallaby-rails/wallaby" target="_blank">Wallaby</a> aims to free developers from the boilerplates by
+        autocompleting the controllers and actions,
+        and making the views themeable so that they can get an admin interface, a blog, or any other themes up in just a
+        few minutes.
+      </p>
+      <p class="mb-4">
+        Working as a consultant, I don’t own any products literally. However, <span class="font-bold">I do ”own” these
+          products</span> in the way by putting a lot of care and ideas into them.
+        In particular, I’m nuts about writing up to 100% coverage specs to ensure every single happy path tested. Even
+        <a class="text-link" href="./resume.html">my resume</a> comes with a passing spec!
+        Because I believe quality is the most important thing to keep the customers. And this is why my client asked me to help
+        with their projects the 4th time and said:
+      </p>
+      <p class="border-l-8 italic mb-6 pl-6">
+        ”Tian joined us in June this year on a short term engagement to deliver the backoffice
+        valet tool, and did an amazing job that helped ensure the successful & on-time delivery of the initiative.
+        It's been an absolute pleasure working with Tian - his knowledge, the quality of his work and his concern
+        for the user & customer experience made him an absolutely valuable member of the valet-pod.”
+      </p>
+      <h2 class="font-bold mb-8 mt-10 text-2xl text-center text-divider">
+        <a class="bg-white m-auto text-heading z-10" href="#why-only-you">Why Only You</a>
+      </h2>
+      <p class="mb-4">
+        <span class="font-bold">You are the best</span> in the Ruby on Rails industry.
+        Your work has a profound impact on the whole open-source community that I want to contribute to.
+        And you have an all-star team that I want to be part of.
+      </p>
+      <p class="mb-4">
+        I believe <span class="text-hey-color">HEY</span> is an innovative product that will influence millions of users
+        as it does tackle the same pain points that I am experiencing.
+        In particular, I love the philosophy to allowlist the emails instead of denylisting that overturns how people process emails from the ground up.
+        In contrast to how the other email providers or apps try to engage users, I think <span class="text-hey-color">HEY</span> sets the right tone to help users to reduce their time on emails.
+        Therefore, if given a chance, <span class="font-bold">I want to literally ”own” it</span> and grow with it this time.
+      </p>
+    </div>
   </section>
-  <section class="h-screen flex justify-center">
-    <div class="self-center m-8">
-      <h1 class="font-bold text-4xl md:text-5xl mb-3 text-hey-color">
+  <section class="flex h-screen justify-center">
+    <div class="m-8 self-center">
+      <h1 class="font-bold mb-3 md:text-5xl text-4xl text-hey-color">
         <a href="#thank-you">Thank you for your time.</a>
       </h1>
-      <h2 class="text-3xl mb-3 md:text-4xl">Let's have a chat!</h2>
-      <h3 class="text-xl md:text-2xl">
+      <h2 class="mb-3 md:text-4xl text-3xl">Let's have a chat!</h2>
+      <h3 class="md:text-2xl text-xl">
         <a class="text-link" href="mailto:me@tian.im">me@tian.im</a> |
         <a class="text-link" href="https://twitter.com/tian_im">twitter/tian_im</a> |
         <a class="text-link" href="https://github.com/tian-im">github/tian-im</a>
